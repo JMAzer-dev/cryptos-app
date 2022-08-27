@@ -9,7 +9,7 @@ const FetchData = () => {
       
     useEffect(() => {
       axios.get(url).then((res) => setCoins(res.data)).catch((err) => console.log(err));;
-    }, []);
+    }, [url]);
 
   return coins
 }

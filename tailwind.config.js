@@ -20,6 +20,9 @@ module.exports = {
         secondary: 'var(--color-bg-secondary)',
         input: 'var(--color-bg-input)',
         accent: 'var(--color-text-accent)',
+      },
+      outlineColor: {    
+        accent: 'var(--color-text-accent)',
       }
     },
   },

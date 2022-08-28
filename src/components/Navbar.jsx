@@ -24,7 +24,7 @@ const Navbar = () => {
         </Link>
         <Link
           to="/signup"
-          className="bg-button text-btnText px-5 py-2 ml-2 rounded-2xl shadow-lg hover:shadow-2xl"
+          className="bg-button text-btnText px-5 py-2 ml-2 rounded-2xl shadow-lg hover:shadow-2xl opacity-90 hover:opacity-100"
         >
           Registrar
         </Link>
@@ -62,7 +62,7 @@ const Navbar = () => {
             </button>
           </Link>
           <Link to="/signup">
-            <button onClick={handleNav} className="w-full my-2 p-3 bg-button text-btnText border border-secondary rounded-2xl shadow-xl">
+            <button onClick={handleNav} className="w-full my-2 p-3 bg-button text-btnText border border-secondary rounded-2xl shadow-xl ">
               Registrar
             </button>
           </Link>

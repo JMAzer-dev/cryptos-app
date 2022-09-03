@@ -16,10 +16,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/coin/:coinId" element={<CoinPage />}>
+          <Route path="/entrar" element={<Signin />} />
+          <Route path="/registrar" element={<Signup />} />
+          <Route path="/minha-conta" element={<Account />} />
+          <Route path="/moeda/:coinId" element={<CoinPage />}>
             <Route path=":coinId" />
           </Route>
         </Routes>

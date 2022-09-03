@@ -36,7 +36,7 @@ const Signin = () => {
         </form>
         <p>
           Ainda não tem uma conta?{' '}
-          <Link to="/signup" className="text-accent hover:underline">
+          <Link to="/registrar" className="text-accent hover:underline">
             Registre-se
           </Link>
         </p>

@@ -7,21 +7,45 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 const UserContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const signUp = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password);
-    return setDoc(doc(db, 'users', email), {
-      watchList: [],
-    });
+  const signUp = async (email, password) => {
+    setError('');
+    try {
+      setLoading(true);
+      await createUserWithEmailAndPassword(auth, email, password);
+      setDoc(doc(db, 'users', email), {
+        watchList: [],
+      });
+      setLoading(false);
+      navigate('/entrar');
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+      console.log(error);
+    }
   };
 
-  const signIn = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password);
+  const signIn = async (email, password) => {
+    setError('');
+    try {
+      setLoading(true);
+      await signInWithEmailAndPassword(auth, email, password);
+      setLoading(false);
+      navigate('/');
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+      console.log(error);
+    }
   };
 
   const logout = () => {
@@ -38,7 +62,9 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ signIn, signUp, logout, user }}>
+    <UserContext.Provider
+      value={{ signIn, signUp, logout, user, loading, error }}
+    >
       {children}
     </UserContext.Provider>
   );

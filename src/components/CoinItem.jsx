@@ -11,7 +11,7 @@ const CoinItem = ({ coin }) => {
         </td>
         <td>{coin.market_cap_rank}</td>
         <td>
-          <Link to={`/coin/${coin.id}`}>
+          <Link to={`/moeda/${coin.id}`}>
             <div className="flex items-center">
               <img
                 className="w-6 mr-2 rounded-full"

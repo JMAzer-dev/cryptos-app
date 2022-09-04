@@ -22,7 +22,7 @@ export const AuthContextProvider = ({ children }) => {
     try {
       setLoading(true);
       await createUserWithEmailAndPassword(auth, email, password);
-      setDoc(doc(db, 'users', email), {
+      await setDoc(doc(db, 'users', email), {
         watchList: [],
       });
       setLoading(false);

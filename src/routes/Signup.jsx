@@ -1,22 +1,21 @@
 import { useForm } from 'react-hook-form';
 import { AiFillLock, AiOutlineMail } from 'react-icons/ai';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import context already filled
 import { UserAuth } from '../context/AuthContext';
 
 const Signup = () => {
-  const navigate = useNavigate();
-
   const { signUp, loading, error } = UserAuth();
 
+  const recaptcha = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
 
-  const submitHandler = async ({ email, password }) => {
-    await signUp(email, password);
+  const submitHandler = async ({ email, password, token }) => {
+    await signUp(email, password, token);
   };
   console.log(error);
   return (
@@ -75,7 +74,12 @@ const Signup = () => {
         </form>
         <p>
           Já possui uma conta?{' '}
-          <Link to="/entrar" className="text-accent hover:underline">
+          <Link
+            to="/entrar"
+            className="text-accent hover:underline g-recaptcha"
+            data-callback="onSubmit"
+            data-sitekey={`${recaptcha}`}
+          >
             Entrar
           </Link>
         </p>

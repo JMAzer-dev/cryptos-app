@@ -20,17 +20,17 @@ const SearchComponent = () => {
           />
         </form>
       </div>
-      <table className='w-full border-collapse text-center '>
+      <table className="w-full border-collapse text-center ">
         <thead>
-          <tr className='border-b'>
+          <tr className="border-b">
             <th></th>
-            <th className='px-4'>#</th>
-            <th className='text-left'>Moeda</th>
+            <th className="px-4">#</th>
+            <th className="text-left">Moeda</th>
             <th></th>
             <th>Preço</th>
             <th>24h</th>
-            <th className='hidden md:table-cell'>Volume 24h</th>
-            <th className='hidden sm:table-cell'>Mercado</th>
+            <th className="hidden md:table-cell">Volume 24h</th>
+            <th className="hidden sm:table-cell">Mercado</th>
             <th>Últimos 7 dias</th>
           </tr>
         </thead>
@@ -44,6 +44,7 @@ const SearchComponent = () => {
               ) {
                 return value;
               }
+              return 'loading...';
             })
             .map((coin) => (
               <CoinItem key={coin.id} coin={coin} />

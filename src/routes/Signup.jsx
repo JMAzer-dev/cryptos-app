@@ -66,20 +66,17 @@ const Signup = () => {
             )}
           </div>
           <button
+            data-callback="onSubmit"
+            data-sitekey={`${recaptcha}`}
             disabled={loading}
-            className="text-btnText bg-button w-full my-2 p-3 rounded-2xl shadow-xl opacity-90 hover:opacity-100 hover:shadow-2xl disabled:opacity-20 disabled:cursor-progress"
+            className="text-btnText bg-button w-full my-2 p-3 rounded-2xl shadow-xl opacity-90 hover:opacity-100 hover:shadow-2xl disabled:opacity-20 disabled:cursor-progress g-recaptcha"
           >
             {loading ? 'Aguarde...' : 'Registrar'}
           </button>
         </form>
         <p>
           Já possui uma conta?{' '}
-          <Link
-            to="/entrar"
-            className="text-accent hover:underline g-recaptcha"
-            data-callback="onSubmit"
-            data-sitekey={`${recaptcha}`}
-          >
+          <Link to="/entrar" className="text-accent hover:underline">
             Entrar
           </Link>
         </p>

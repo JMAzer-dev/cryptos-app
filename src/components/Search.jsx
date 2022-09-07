@@ -11,10 +11,10 @@ const SearchComponent = () => {
     <div className="rounded-div my-4 overflow-x-auto">
       <div className="flex flex-col md:flex-row justify-between pt-4 pb-6 md:text-right items-center">
         <h1 className="text-2xl font-bold my-2">Buscar Crypto</h1>
-        <form>
+        <form className="w-full">
           <input
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-primary border-input px-4 py-2 rounded-2xl shadow-xl "
+            className="w-full bg-primary border-input px-4 py-2 rounded-2xl shadow-xl"
             type="text"
             placeholder="Pesquisar..."
           />

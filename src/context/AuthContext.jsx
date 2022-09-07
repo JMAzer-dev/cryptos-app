@@ -26,7 +26,7 @@ export const AuthContextProvider = ({ children }) => {
         watchList: [],
       });
       setLoading(false);
-      navigate('/entrar');
+      navigate('/');
     } catch (error) {
       setError(error.message);
       setLoading(false);
@@ -40,7 +40,7 @@ export const AuthContextProvider = ({ children }) => {
       setLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
       setLoading(false);
-      navigate('/');
+      navigate('/minha-conta');
     } catch (error) {
       setError(error.message);
       setLoading(false);
